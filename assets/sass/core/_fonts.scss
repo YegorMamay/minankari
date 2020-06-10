@@ -1,0 +1,30 @@
+@font-face {
+    font-family: "Playfair Regular";
+    src: url("assets/fonts/PlayfairDisplay-Regular.ttf");
+}
+@font-face {
+    font-family: "Playfair Bold";
+    src: url("assets/fonts/PlayfairDisplay-Bold.ttf");
+}
+@font-face {
+    font-family: "Playfair Italic";
+    src: url("assets/fonts/PlayfairDisplay-Italic.ttf");
+}
+
+@font-face {
+    font-family: "PTS55F";
+    src: url("assets/fonts/PTS55F.ttf");
+}
+@font-face {
+    font-family: "PTS75F";
+    src: url("assets/fonts/PTS75F.ttf");
+}
+//@import url('https://fonts.googleapis.com/css?family=Comfortaa|Lobster&subset=cyrillic');
+
+//font-family: 'Roboto', sans-serif;
+$font-family-sans-serif: 'Arial', 'Helvetica', sans-serif;
+$font-family-serif: 'Georgia', 'Times New Roman', 'Times', serif;
+$font-family-monospace: 'Menlo', 'Monaco', 'Consolas', 'Courier New', monospace;
+
+$fontFamilyOne: "Playfair Regular"; // titles
+$fontFamilyTwo: "PTS55F"; // body

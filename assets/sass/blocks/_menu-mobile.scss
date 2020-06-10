@@ -1,0 +1,180 @@
+.nav-mobile-header {
+  display: none;
+}
+
+//xs 544
+@media #{$mobile} {
+  nav.main-nav {
+    display: none;
+  }
+  .nav-mobile-header {
+    display: block;
+    position: fixed;
+    width: 100%;
+    padding: 10px 15px;
+    top: 0;
+    left: 0;
+    border-bottom: 1px solid #e7e7e7;
+    background-color: $navHeaderMobileBGColor;
+    text-align: left;
+    z-index: 99;
+
+    img {
+      max-height: 50px;
+      width: auto;
+    }
+  }
+
+  .hamburger {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 10px;
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    z-index: 100;
+    overflow: auto;
+    background-color: $menuMobileBGColor;
+    will-change: transform;
+    transform: translateX(100%);
+    transition: transform 0.2s ease-out;
+
+    &.is-active {
+      transform: translateX(0%);
+    }
+    .menu {
+      display: block;
+      padding: 40px 0;
+
+      &-close {
+        display: block;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+
+      &-item {
+        display: block;
+
+        &-has-children {
+          padding-right: 5px;
+        }
+
+        &::after {
+          display: none;
+        }
+
+        .menu-item-has-children-arrow {
+          position: absolute;
+          top: 5px;
+          right: 10px;
+          z-index: 1;
+          display: block;
+          border: 0;
+          padding: 11px 13px 15px;
+          background-color: transparent;
+
+          &::before {
+            content: "";
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-right: 2px solid $navArrowColor;
+            border-bottom: 2px solid $navArrowColor;
+            transform: rotate(45deg);
+          }
+
+          &-active {
+            padding-top: 15px;
+            padding-bottom: 11px;
+
+            &::before {
+              transform: rotate(-135deg);
+            }
+          }
+        }
+
+        &-current,
+        &.current-menu-parent,
+        &.current-menu-ancestor {
+          .menu-link {
+          }
+        }
+      }
+
+      &-link {
+        color: $menuMobileTextColor;
+        display: block;
+        font-size: $menuMobileLinkFontSize;
+      }
+    }
+
+    .sub-menu {
+      position: static;
+      width: auto;
+      display: none;
+      visibility: visible;
+      background-color: $menuMobileSubMenuBGColor;
+      opacity: 1;
+      box-shadow: none;
+      transition: none;
+
+      &-item {
+        &::after {
+          display: none;
+        }
+
+        .menu-item-has-children-arrow {
+          top: 0;
+        }
+
+        & + .sub-menu-item {
+        }
+
+        &-current {
+          > .sub-menu-link {
+          }
+        }
+      }
+
+      &-link {
+        color: $menuMobileSubMenuTextColor;
+        font-size: $menuMobileSubMenuLinkFontSize;
+      }
+    }
+  }
+}
+
+.menu-container {
+  @media #{$tablet} {
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    background-color: #632030;
+
+    z-index: 1000;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center !important;
+    align-items: center !important;
+
+    transition: left 0.4s ease-in-out;
+
+    li {
+      margin: 12px 0 !important;
+      a {
+        font-size: 16px !important;
+      }
+    }
+  }
+}

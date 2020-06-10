@@ -1,0 +1,155 @@
+$debug: false !default;
+$image-url-path: "assets/img/" !default;
+$font-url-path: "assets/fonts/" !default;
+
+$borderRadius: 0;
+$shadow: 0 0 10px rgba(#000, 0.2);
+
+// BRAND
+$themeColorOne: #fff; // Обычно самый темный цвет. Используется для:
+// заголовков h1-h6 - $titleFontColor и других.
+
+$themeColorTwo: #570f20; // Основной "брендовый" цвет.
+// Поменять значение этой переменной согласно макета обязательно!
+
+$themeColorTwoChanged: #632030;
+
+$themeColorThree: #e5b25c;
+
+// SELECTION: цвет фона и текста при выделении его курсором
+$selectionBgColor: $themeColorTwo;
+$selectionFontColor: #fff;
+
+// BODY
+$bodyBgColor: #fff; //white
+$bodyFontColor: #000; // black
+
+// HEADER: цвет фона шапки сайта
+$headerBgColor: $themeColorOne;
+$headerFontColor: #fff;
+
+// Text Highlight: цвет фона и текста при добавлении к нему .highlighted
+$textHighlightBgColor: $themeColorTwo;
+$textHighlightColor: #fff;
+
+// MENU
+$menuBgColor: $themeColorOne;
+$menuBgColorActive: $themeColorTwo;
+$menuFontColor: #fff;
+$menuFontColorActive: #fff;
+
+$navArrowColor: #fff;
+$navHeaderMobileBGColor: $themeColorOne;
+$navHamburgerMobileColor: #fff;
+
+$menuMobileBGColor: $themeColorOne;
+$menuMobileSubMenuBGColor: lighten($themeColorOne, 10%);
+$menuMobileLinkFontSize: 16px;
+$menuMobileSubMenuLinkFontSize: 14px;
+$menuMobileTextColor: #fff;
+$menuMobileSubMenuTextColor: $menuMobileTextColor;
+$menuMobileSubMenuBGOnHover: $themeColorOne;
+$menuMobileSubMenuTextColorOnHover: #fff;
+
+$hamburger-offset: 8px;
+$hamburger-duration: 0.1s;
+$hamburger-delay: 0.1s;
+$hamburger-color: $themeColorTwo;
+
+$menu-close-size: 25px;
+$menu-close-color: #fff;
+$menuContainerMobilePaddingTop: 30%;
+
+// FOOTER
+$footerBgColor: $themeColorOne;
+$footerFontColor: #fff;
+$footerLinkColorActive: darken($footerFontColor, 5%);
+
+// WRAPPER
+$wrapperBgColor: #fff;
+
+// TITLES
+$titleFontColor: $themeColorOne;
+$titleFontColorActive: lighten($titleFontColor, 10%);
+
+// LINKS
+$linkFontColor: #000;
+$linkFontColorActive: lighten($linkFontColor, 20%);
+
+// TABLE
+$tableBgColor: $themeColorTwo;
+$tableBgColorActive: lighten($themeColorTwo, 10%);
+$tableBorderColor: #fff;
+$tableBorderColorActive: #989898;
+$tableOddBgColor: $themeColorOne;
+$tableOddFontColor: #fff;
+$tableEvenBgColor: $themeColorTwo;
+$tableEvenFontColor: #fff;
+
+// TEXT
+$textMutedColor: #aaa;
+
+// Icons
+$iconColor: $themeColorTwo;
+$iconColorActive: $bodyBgColor;
+$iconColorReversed: $bodyBgColor;
+
+// FORMS
+$formFieldBorderWidth: 1px;
+$formFieldBorderColor: lighten($themeColorOne, 30%);
+$formFieldPadding: 10px 8px;
+$formFieldTextColor: #000;
+$formFieldTextSize: 13px;
+$formFieldBorderRadius: $borderRadius;
+$formFieldBackgroundColor: #fff;
+$inputFieldMinHeight: 38px;
+$formBgColor: lighten($themeColorOne, 75%);
+
+// Pagination
+$paginationActiveLink: $themeColorTwo;
+$paginationActiveLinkText: #fff;
+$paginationLinkOnHover: $themeColorTwo;
+$paginationLinkOnHoverText: #fff;
+
+//WOOCOMMERCE
+$wooThemeColor: $themeColorTwo;
+
+// On sale
+$onsaleBackgroundColor: $wooThemeColor;
+$onsaleFontColor: #fff;
+
+// Products price
+$productsPriceFontColor: $wooThemeColor;
+
+// Single Product page
+$productPriceFontColor: $wooThemeColor;
+
+// error
+$errorBorderTopColor: #b81c23;
+$errorIconFontColor: #b81c23;
+
+// info
+$infoBorderTopColor: #1e85be;
+$infoIconFontColor: #1e85be;
+
+// message
+$messageBorderTopColor: $themeColorTwo;
+$messageIconFontColor: $themeColorTwo;
+
+$grid-columns: 12 !default;
+$grid-gutter-width: 30px !default;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+) !default;

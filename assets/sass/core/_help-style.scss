@@ -1,0 +1,152 @@
+.link {
+    text-decoration: underline;
+    color: $themeColorTwo;
+}
+
+.bold {
+    font-weight: 900;
+}
+
+.center-block {
+    text-align: center;
+    display: block !important;
+    margin: 0 auto;
+}
+
+em {
+    font-style: italic;
+}
+
+.text {
+    &-muted {
+        color: $textMutedColor !important;
+    }
+    
+    &-white {
+        color: #fff;
+    }
+
+    &-center {
+        text-align: center;
+    }
+
+    &-left {
+        text-align: left;
+    }
+
+    &-right {
+        text-align: right;
+    }
+
+    &-just {
+        text-align: justify;
+    }
+
+    &-uppercase {
+        text-transform: uppercase;
+    }
+
+    &-underline {
+        text-decoration: underline;
+    }
+    
+    &-through {
+        text-decoration: line-through;
+    }
+
+    &-nowrap {
+        white-space: nowrap;
+    }
+
+    &-bold {
+        font-weight: bold;
+    }
+
+}
+
+.pull-right {
+    float: right;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-none {
+    float: none;
+}
+
+.hide-on-mobile {
+    display: block !important;
+}
+
+.hide-on-desktop {
+    display: none !important;
+}
+
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+
+.brand-color {
+    color: $themeColorTwo;
+}
+
+.highlighted {
+    display: inline-block;
+    padding: 5px 15px;
+    background-color: $textHighlightBgColor;
+
+    &,
+    a {
+        color: $textHighlightColor;
+    }
+}
+
+.is-loading {
+    &::before {
+        content: ' ';
+        display: inline-block;
+        vertical-align: -4px;
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+        border-radius: 50%;
+        border: 2px solid #ccc;
+        border-top-color: #363636;
+        animation: spin 1s linear infinite;
+    }
+}
+
+.is-hide {
+    display: none;
+}
+
+.scrolled-table-wrapper {
+	overflow-x: scroll;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+//xs 544
+@media #{$mobile} {
+    .hide-on-mobile {
+        display: none !important;
+    }
+
+    .hide-on-desktop {
+        display: block !important;
+    }
+    
+    .center-on-mobile {
+        text-align: center !important;
+    }
+}

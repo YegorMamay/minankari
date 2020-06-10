@@ -1,0 +1,303 @@
+.nav {
+  display: block;
+  position: relative;
+  margin: 10px 0;
+  text-align: center;
+  background: $menuBgColor;
+
+  .menu {
+    &,
+    &-container {
+      @extend %reset-list;
+      font-size: 0;
+    }
+
+    &-item {
+      display: inline-block;
+      vertical-align: middle;
+      padding: 5px;
+
+      &:hover {
+        background: $menuBgColorActive;
+
+        a {
+          color: $menuFontColorActive;
+        }
+      }
+
+      .menu-item-has-children-arrow {
+        display: none;
+      }
+
+      &-close {
+        cursor: pointer;
+        position: relative;
+        display: none;
+        width: $menu-close-size;
+        height: $menu-close-size;
+        border: 0;
+        background-color: transparent;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+
+        &:focus {
+          outline: 0;
+          box-shadow: 0 0 0 4px rgba($menu-close-color, 0.2);
+        }
+
+        &::before,
+        &::after {
+          content: "";
+          width: 100%;
+          height: 2px;
+          background-color: $menu-close-color;
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          margin: auto;
+        }
+
+        &::before {
+          transform: rotate(45deg);
+        }
+
+        &::after {
+          transform: rotate(-45deg);
+        }
+      }
+
+      &-has-children {
+        position: relative;
+        padding-right: 15px;
+
+        &:hover {
+          &::after {
+          }
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 21px;
+          right: 8px;
+          border: 5px solid $menuFontColor;
+          border-color: $menuFontColor transparent transparent transparent;
+        }
+      }
+
+      &-current {
+        border-bottom: 5px solid $menuBgColorActive;
+        padding-bottom: 0;
+      }
+
+      .no-touch &:hover,
+      &-current,
+      &.current-menu-parent,
+      &.current-menu-ancestor {
+        .menu-link {
+          text-decoration: none;
+        }
+      }
+
+      .no-touch &:hover {
+        > .sub-menu {
+          top: 100%;
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+    }
+
+    &-link {
+      display: block;
+      padding: 8px 10px;
+      color: $menuFontColor;
+      font-size: 16px;
+      line-height: 1.3;
+      text-align: center;
+      text-transform: none;
+      text-decoration: none;
+      @extend %smooth_animation;
+    }
+  }
+
+  .sub-menu {
+    @extend %reset-list;
+    position: absolute;
+    top: 200%;
+    left: 0;
+    z-index: 33;
+    width: 250px;
+    background-color: $menuBgColorActive;
+    visibility: hidden;
+    text-align: left;
+    opacity: 0;
+    box-shadow: 0 5px 20px rgba(#000, 0.2);
+    @extend %smooth_animation;
+
+    &-item {
+      .menu-item-has-children-arrow {
+        display: none;
+      }
+
+      &-has-children {
+        position: relative;
+
+        &:hover {
+          &::after {
+            border-left-color: #fff;
+          }
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 12px;
+          right: 5px;
+          border: 5px solid $menuFontColor;
+          border-color: transparent transparent transparent $menuFontColor;
+          transition: border-color 0.3s ease-in-out;
+        }
+      }
+
+      .no-touch &:hover,
+      &-current {
+        > .sub-menu-link {
+          background-color: $menuMobileSubMenuBGOnHover;
+          color: $menuFontColorActive;
+        }
+      }
+
+      .no-touch &:hover {
+        > .sub-menu {
+          display: block;
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+    }
+
+    &-link {
+      display: block;
+      padding: 9px 15px;
+      color: $menuFontColor;
+      font-size: 14px;
+      line-height: 1.3;
+      text-decoration: none;
+      @extend %smooth_animation;
+    }
+
+    .sub-menu {
+      top: 0;
+      left: 100%;
+    }
+  }
+}
+
+.hamburger {
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: 0.2s ease-out;
+
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 4px rgba($hamburger-color, 0.2);
+  }
+
+  &,
+  &[type="button"] {
+    cursor: pointer;
+    border: 0;
+    padding: 9px 5px;
+    color: #fff;
+    font-size: 24px;
+    background-color: transparent;
+
+    position: absolute;
+    top: 15px;
+    right: 10px;
+
+    display: none;
+    z-index: 1500;
+    @media #{$tablet} {
+      display: block;
+    }
+  }
+
+  &.is-active {
+    i {
+      &::before {
+        content: "\f00d";
+        font-family: "Font Awesome 5 Pro";
+      }
+    }
+  }
+
+  &-box {
+    display: block;
+    width: 30px;
+    padding: 9px 0;
+  }
+
+  &-inner {
+    position: relative;
+    transition: background-color 0s ease-out $hamburger-delay;
+
+    &,
+    &::before,
+    &::after {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: $navHamburgerMobileColor;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      transition: bottom $hamburger-duration ease-out $hamburger-delay,
+        top $hamburger-duration ease-out $hamburger-delay,
+        transform $hamburger-duration ease-out;
+    }
+
+    &::before {
+      bottom: $hamburger-offset;
+    }
+
+    &::after {
+      top: $hamburger-offset;
+    }
+  }
+
+  @media #{$tablet} {
+    display: block;
+  }
+}
+
+.is-active {
+  .hamburger-inner {
+    background-color: transparent;
+
+    &::before,
+    &::after {
+      transition: bottom $hamburger-duration ease-out,
+        top $hamburger-duration ease-out,
+        transform $hamburger-duration ease-out $hamburger-delay;
+    }
+
+    &::before {
+      bottom: 0;
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+  }
+}

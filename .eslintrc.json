@@ -1,0 +1,67 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true,
+        "jquery": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaVersion": 2016,
+        "sourceType": "module"
+    },
+    "parser": "babel-eslint",
+    "rules": {
+        "indent": [
+            "error",
+            4
+        ],
+        "linebreak-style": [
+            "error",
+            "windows"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "no-console": "warn",
+        "no-unused-vars": "warn",
+        "eol-last": "error",
+        "valid-jsdoc": [
+            "error",
+            {
+                "prefer": {
+                    "return": "returns"
+                },
+                "preferType": {
+                    "Boolean": "boolean",
+                    "Number": "number",
+                    "object": "Object",
+                    "String": "string"
+                },
+                "requireReturn": true,
+                "requireParamType": true,
+                "requireReturnType": true,
+                "matchDescription": ".+",
+                "requireParamDescription": true,
+                "requireReturnDescription": true
+            }
+        ],
+        "require-jsdoc": [
+            "error",
+            {
+                "require": {
+                    "ClassDeclaration": true,
+                    "MethodDefinition": true,
+                    "FunctionExpression": true,
+                    "FunctionDeclaration": true,
+                    "ArrowFunctionExpression": true
+                }
+            }
+        ]
+    }
+}

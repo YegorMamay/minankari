@@ -1,0 +1,167 @@
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: $themeColorTwo;
+  border-top: 1px solid #632030;
+
+  .footer-content {
+    padding: 100px 15px 60px;
+
+    @media #{$tablet} {   
+      padding: 40px 15px;
+    }
+  }
+
+  .phone {
+    margin-bottom: 15px;
+    a {
+      color: #fff;
+      font-size: 14px;
+    }
+    i {
+      color: $themeColorThree;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+  }
+
+  .email {
+    margin-bottom: 15px;
+    a {
+      color: $themeColorThree;
+      font-size: 16px;
+      font-family: $fontFamilyOne;
+    }
+  }
+
+  .schedule {
+    margin-bottom: 15px;
+    p {
+      color: #fff;
+      font-size: 14px;
+    }
+  }
+
+  h4 {
+    font-weight: normal;
+    font-size: 20px;
+    padding: 20px 0 25px;
+  }
+
+  .logo {
+    margin-bottom: 15px;
+    img {
+      height: 80px;
+      width: auto;
+    }
+  }
+}
+
+.pre-footer {
+  padding: 20px 0;
+  background-color: lighten($footerBgColor, 10%);
+}
+
+.copyright {
+  padding: 20px 0;
+  color: $footerFontColor;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-top: 1px solid #632030;
+
+  .col {
+    flex: 1;
+  }
+
+  p {
+    text-align: left;
+    font-size: 14px;
+    color: #ab8790;
+  }
+
+  a {
+    color: $footerFontColor;
+    text-decoration: underline;
+
+    &:hover {
+      color: $footerLinkColorActive;
+    }
+  }
+}
+
+.footer-social {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  margin: 0;
+  padding: 0;
+
+  li {
+    list-style: none;
+    margin-left: 15px;
+
+    a {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      height: 40px;
+      width: 40px;
+
+      border-radius: 50px;
+      border: 2px solid #632030;
+
+      text-decoration: none;
+
+      i {
+        font-size: 16px;
+      }
+    }
+  }
+
+  span {
+    font-size: 14px;
+    color: #fff;
+  }
+}
+
+.footer-categories-list {
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    margin: 0;
+    padding: 0;
+
+    li {
+      width: 50%;
+      margin-bottom: 10px;
+
+      list-style: none;
+
+      a {
+        color: #fff;
+        font-size: 12px;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 1.2px;
+      }
+    }
+  }
+
+  &.one-column {
+    ul {
+      li {
+        width: 100%;
+      }
+    }
+  }
+}

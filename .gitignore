@@ -1,0 +1,14 @@
+.idea
+ignored
+node_modules
+bower_components
+*.zip
+*.rar
+*.log
+*.map
+*.po~
+*.pot~
+style.min.css
+brainworks.min.js
+package-lock.json
+assets/js/bwpf/build
