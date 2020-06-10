@@ -42,6 +42,7 @@
 .woocommerce {
   .images {
     max-height: 400px;
+
     .slider:not(.slick-vertical) {
       .slick-slide.slick-current.slick-active {
         display: flex;
@@ -67,14 +68,17 @@
       margin-top: 20px;
     }
   }
+
   table.cart {
     padding: 0;
     background-color: #fff;
+
     tbody {
       tr {
         td {
           &.actions {
             padding: 20px 15px;
+
             .button {
               padding: 12px 27px;
               font-size: 12px;
@@ -83,6 +87,7 @@
               background-color: $themeColorThree;
               color: #fff;
             }
+
             .coupon {
               input.input-text {
                 border: 0;
@@ -266,6 +271,7 @@
   // Cart
   .cart-collaterals {
     margin-bottom: 30px;
+
     .cart_totals {
       h2 {
         text-align: left;
@@ -492,10 +498,10 @@
     .button.add-to-cart.cart-buttton.alt {
       display: block;
       padding: 21px 0px;
-      width: 100%; 
+      width: 100%;
 
       color: #fff;
-      text-transform: uppercase;   
+      text-transform: uppercase;
       font-weight: bold;
       font-size: 12px;
       line-height: 1;
@@ -516,6 +522,7 @@
   .delivery-list {
     margin: 0;
     padding: 0 0 0 20px;
+
     li {
       position: relative;
       list-style: none;
@@ -916,6 +923,7 @@
 
     &.checked {
       border-color: $themeColorThree;
+
       &::after {
         display: block;
       }
@@ -928,6 +936,7 @@
     &:checked + .square,
     &.checked + .square {
       border-color: $themeColorThree;
+
       &::after {
         display: block;
       }
@@ -946,6 +955,7 @@
 .woocommerce {
   .woocommerce-MyAccount-navigation {
     margin-bottom: 20px;
+
     ul {
       margin: 0;
       padding: 0;
@@ -954,6 +964,7 @@
       li {
         list-style: none;
         margin-bottom: 0px;
+
         &:not(:last-child) {
           border-bottom: 2px solid #632030;
         }
@@ -963,6 +974,7 @@
           padding: 14px 15px;
           color: $themeColorThree;
           transition: all 0.4s ease-in-out;
+
           &:hover {
             background-color: $themeColorThree;
             color: #fff;
@@ -971,16 +983,19 @@
       }
     }
   }
+
   table.my_account_orders {
     background-color: #fff;
     padding: 15px;
   }
+
   .woocommerce-order-details,
   .woocommerce-customer-details {
     h2 {
       font-size: 24px;
       margin: 20px 0;
     }
+
     table,
     address {
       padding: 15px;
@@ -1045,3 +1060,136 @@
     }
   }
 }
+
+#top {
+  & .cart-empty {
+    &.woocommerce-info {
+      background: $themeColorTwo;
+      color: #ffffff;
+      border-top: 2px solid $themeColorTwoChanged;
+
+      &:before {
+        color: #ffffff;
+      }
+    }
+  }
+
+  & .woocommerce-info {
+    background: $themeColorTwo;
+    color: #ffffff;
+    border-top: 2px solid $themeColorTwoChanged;
+
+    & .showlogin {
+      color: #e5b25c !important;
+
+      &:hover, &:focus {
+        color: lighten(#e5b25c, 15%) !important;
+      }
+    }
+
+    &:before {
+      color: #ffffff;
+    }
+  }
+
+  & .alert-warning {
+    padding-bottom: 10px;
+  }
+
+  & .woocommerce-MyAccount-content {
+    background: $themeColorTwo !important;
+
+    & a {
+      color: #e5b25c !important;
+
+      &:hover, &:focus {
+        color: lighten(#e5b25c, 15%) !important;
+      }
+    }
+  }
+
+  & .woocommerce-form {
+    background: $themeColorTwo;
+
+    & .lost_password {
+
+      & a {
+        color: #e5b25c !important;
+
+        &:hover, &:focus {
+          color: lighten(#e5b25c, 15%) !important;
+        }
+      }
+    }
+  }
+
+  & .woocommerce-billing-fields {
+    background: $themeColorTwo;
+
+    & h3 {
+      color: #ffffff;
+    }
+  }
+
+  & .woocommerce-additional-fields {
+    background: $themeColorTwo;
+
+    & h3 {
+      color: #ffffff;
+    }
+  }
+
+  & .woocommerce-checkout-review-order {
+    background: $themeColorTwo !important;
+    color: #ffffff;
+  }
+
+  & .shop_table {
+    background: $themeColorTwo !important;
+    color: #ffffff;
+  }
+
+  & .wc_payment_methods {
+    background: $themeColorTwo !important;
+    color: #ffffff;
+  }
+
+  & .payment_method_cod {
+    background: $themeColorTwo !important;
+    color: #ffffff !important;
+
+    &:before {
+      border-bottom-color: transparent !important;
+    }
+  }
+
+  & .payment_box {
+    background: $themeColorTwoChanged !important;
+    color: #ffffff !important;
+
+    &:before {
+      border-bottom-color: transparent !important;
+    }
+  }
+
+  & .form-row {
+    background: $themeColorTwo !important;
+    color: #ffffff !important;
+  }
+
+  #payment {
+    & ul {
+      border-color: $themeColorTwoChanged;
+    }
+  }
+
+  & .select2-container--default {
+    color: #000000 !important;
+  }
+
+  & .select2-results__option--highlighted[data-selected] {
+    background: #e5b25c !important;
+    color: #ffffff;
+  }
+}
+

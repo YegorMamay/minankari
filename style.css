@@ -12000,6 +12000,129 @@ ol.commentlist .comment-body {
   flex: 1;
 }
 
+#top .cart-empty.woocommerce-info {
+  background: #570f20;
+  color: #ffffff;
+  border-top: 2px solid #632030;
+}
+
+#top .cart-empty.woocommerce-info:before {
+  color: #ffffff;
+}
+
+#top .woocommerce-info {
+  background: #570f20;
+  color: #ffffff;
+  border-top: 2px solid #632030;
+}
+
+#top .woocommerce-info .showlogin {
+  color: #e5b25c !important;
+}
+
+#top .woocommerce-info .showlogin:hover, #top .woocommerce-info .showlogin:focus {
+  color: #f0d19e !important;
+}
+
+#top .woocommerce-info:before {
+  color: #ffffff;
+}
+
+#top .alert-warning {
+  padding-bottom: 10px;
+}
+
+#top .woocommerce-MyAccount-content {
+  background: #570f20 !important;
+}
+
+#top .woocommerce-MyAccount-content a {
+  color: #e5b25c !important;
+}
+
+#top .woocommerce-MyAccount-content a:hover, #top .woocommerce-MyAccount-content a:focus {
+  color: #f0d19e !important;
+}
+
+#top .woocommerce-form {
+  background: #570f20;
+}
+
+#top .woocommerce-form .lost_password a {
+  color: #e5b25c !important;
+}
+
+#top .woocommerce-form .lost_password a:hover, #top .woocommerce-form .lost_password a:focus {
+  color: #f0d19e !important;
+}
+
+#top .woocommerce-billing-fields {
+  background: #570f20;
+}
+
+#top .woocommerce-billing-fields h3 {
+  color: #ffffff;
+}
+
+#top .woocommerce-additional-fields {
+  background: #570f20;
+}
+
+#top .woocommerce-additional-fields h3 {
+  color: #ffffff;
+}
+
+#top .woocommerce-checkout-review-order {
+  background: #570f20 !important;
+  color: #ffffff;
+}
+
+#top .shop_table {
+  background: #570f20 !important;
+  color: #ffffff;
+}
+
+#top .wc_payment_methods {
+  background: #570f20 !important;
+  color: #ffffff;
+}
+
+#top .payment_method_cod {
+  background: #570f20 !important;
+  color: #ffffff !important;
+}
+
+#top .payment_method_cod:before {
+  border-bottom-color: transparent !important;
+}
+
+#top .payment_box {
+  background: #632030 !important;
+  color: #ffffff !important;
+}
+
+#top .payment_box:before {
+  border-bottom-color: transparent !important;
+}
+
+#top .form-row {
+  background: #570f20 !important;
+  color: #ffffff !important;
+}
+
+#top #payment ul {
+  border-color: #632030;
+}
+
+#top .select2-container--default {
+  color: #000000 !important;
+}
+
+#top .select2-results__option--highlighted[data-selected] {
+  background: #e5b25c !important;
+  color: #ffffff;
+}
+
 h1,
 h2,
 h3,
@@ -12873,7 +12996,7 @@ hr.style-two {
   color: #fff;
 }
 
-@media (min-width: 769px) {
+@media screen and (min-width: 992px) {
   .page-header {
     height: 130px;
     padding: 15px 0 25px;
@@ -12958,6 +13081,16 @@ hr.style-two {
   justify-content: space-between;
 }
 
+.page-header .menu .menu-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: calc(100% - 45px);
+}
+
 .page-header .menu .menu-wrapper.is-active ul {
   left: 0;
 }
@@ -12966,16 +13099,19 @@ hr.style-two {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width: 100%;
+  padding-right: 20px;
   margin: 0;
-  padding: 0;
 }
 
 .page-header .menu ul li {
   list-style: none;
-  margin-right: 30px;
 }
 
 .page-header .menu ul li a {
@@ -13091,7 +13227,7 @@ hr.style-two {
   text-align: center;
 }
 
-@media (min-width: 769px) {
+@media screen and (min-width: 992px) {
   .page-header .header-logo {
     text-align: left;
   }
@@ -13248,7 +13384,7 @@ hr.style-two {
   letter-spacing: 1.1px;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 991px) {
   .categories-list ul {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
@@ -13509,6 +13645,12 @@ hr.style-two {
   .cart-panel-wrapper:hover .cart-panel {
     display: block;
   }
+}
+
+.menu-languages .lang {
+  z-index: 30;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 .nav {
@@ -14857,4 +14999,12 @@ img {
 
 article p {
   color: #fff;
+}
+
+.single-content .single-title {
+  text-align: center;
+}
+
+.single_add_to_cart_button.loading:after {
+  top: 21px !important;
 }

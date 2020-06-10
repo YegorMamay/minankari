@@ -97,7 +97,7 @@
         <div class="copyright">
             <div class="col">
                 <p>
-                    © «Minankari» 2019. <?php _e('Все права защищены', 'brainworks'); ?>
+                    © «Minankari» <?php echo date('Y'); ?>. <?php _e('Все права защищены', 'brainworks'); ?>
                 </p>
             </div>
             <div class="col">

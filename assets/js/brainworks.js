@@ -387,7 +387,6 @@
                 return param.join("=");
             }).join("&").trim();
             if (params) params = "?" + params;
-            location.search = params;
         }
     };
 })(window, document, jQuery, window.jpAjax);

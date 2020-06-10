@@ -10,7 +10,7 @@
   background-color: $themeColorTwo;
   color: $headerFontColor;
 
-  @media #{$laptop} {
+  @media screen and (min-width: 992px) {
     height: 130px;
     padding: 15px 0 25px;
   }
@@ -83,6 +83,9 @@
 
   .menu {
     .menu-wrapper {
+      display: flex;
+      align-items: center;
+      width: calc(100% - 45px);
       &.is-active {
         ul {
           left: 0;
@@ -92,15 +95,14 @@
 
     ul {
       display: flex;
-      justify-content: flex-end;
-
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding-right: 20px;
       margin: 0;
-      padding: 0;
 
       li {
         list-style: none;
-
-        margin-right: 30px;
 
         a {
           font-size: 14px;
@@ -192,7 +194,7 @@
   .header-logo {
     text-align: center;
 
-    @media #{$laptop} {
+    @media screen and (min-width: 992px) {
       text-align: left;
     }
   }
@@ -315,7 +317,7 @@
       }
     }
 
-    @media #{$tablet} {
+    @media screen and (max-width: 991px) {
       flex-wrap: wrap;
 
       flex: none;
@@ -540,5 +542,13 @@
         display: block;
       }
     }
+  }
+}
+
+.menu-languages {
+  & .lang {
+    z-index: 30;
+    padding-top: 6px;
+    padding-bottom: 6px;
   }
 }

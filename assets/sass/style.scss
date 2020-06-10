@@ -228,3 +228,17 @@ article {
     color: #fff;
   }
 }
+
+.single-content {
+  & .single-title {
+    text-align: center;
+  }
+}
+
+.single_add_to_cart_button {
+  &.loading {
+    &:after {
+      top: 21px !important;
+    }
+  }
+}

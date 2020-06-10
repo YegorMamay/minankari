@@ -57,7 +57,7 @@
                     <i class="fal fa-bars"></i>
                 </button>
                 <div class="row">
-                    <div class="col-md-2 col-xs-12 header-col">
+                    <div class="col-12 col-md-12 col-lg-2 header-col">
                         <div class="header-logo">
                             <?php
                             get_default_logo_link([
@@ -71,8 +71,7 @@
                             ?>
                         </div>
                     </div>
-                    <div class="col-lg-1 hidden-md"></div>
-                    <div class="col-md-3 col-xs-6 stretch header-col">
+                    <div class="col-md-4 col-lg-3 stretch header-col">
                         <div class="phone">
                             <i class="fal fa-phone"></i>
                             <?php
@@ -95,7 +94,7 @@
                             </form>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xs-12 text-right stretch header-col">
+                    <div class="col-md-8 col-lg-6 text-right stretch header-col">
                         <div class="menu">
                             <div class="menu-wrapper js-menu">
                                 <?php wp_nav_menu(array(
