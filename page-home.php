@@ -144,9 +144,8 @@
                 <?php echo do_shortcode('[signature]'); ?>
             </div>
         </div>
+        <?php get_template_part('loops/content', 'home'); ?>
     </div>
 </section>
-
-<?php get_template_part('loops/content', 'home'); ?>
 
 <?php get_footer(); ?>

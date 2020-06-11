@@ -1191,5 +1191,27 @@
     background: #e5b25c !important;
     color: #ffffff;
   }
+
+  & .input-text {
+    background: transparent;
+    border: 1px solid #F8D4E1;
+    color: #ffffff;
+  }
+
+  & .product-name {
+    & a {
+      color: #ffffff;
+    }
+  }
+
+  .cart-collaterals .cart_totals {
+    background: transparent;
+  }
+
+  & .cart_totals {
+    & h2 {
+      color: #ffffff;
+    }
+  }
 }
 

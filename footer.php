@@ -66,10 +66,8 @@
                                         <?php echo $item->title ?>
                                     </a>
                                 </li>
-                        <?php
-                            }
-                        }
-                        ?>
+                        <?php }
+                        } ?>
                     </ul>
                 </div>
             </div>

@@ -242,3 +242,25 @@ article {
     }
   }
 }
+
+.page-404 {
+  & .contain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  & .message {
+    margin-bottom: 20px;
+  }
+}
+
+.button-style {
+  & i {
+    color: #FFFFFF;
+    &:hover, &:focus {
+      color: lighten(#e5b25c, 15%);
+    }
+  }
+}

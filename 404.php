@@ -13,11 +13,6 @@
             <?php _e('Back to the homepage', 'brainworks'); ?>
         </a>
     </div>
-
-    <div class="search-form">
-        <h5 class="text-center"><?php _e('Or use search', 'brainworks'); ?></h5>
-        <?php get_search_form(); ?>
-    </div>
   </div>
 </div>
 

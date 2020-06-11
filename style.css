@@ -12123,6 +12123,24 @@ ol.commentlist .comment-body {
   color: #ffffff;
 }
 
+#top .input-text {
+  background: transparent;
+  border: 1px solid #F8D4E1;
+  color: #ffffff;
+}
+
+#top .product-name a {
+  color: #ffffff;
+}
+
+#top .cart-collaterals .cart_totals {
+  background: transparent;
+}
+
+#top .cart_totals h2 {
+  color: #ffffff;
+}
+
 h1,
 h2,
 h3,
@@ -13653,6 +13671,14 @@ hr.style-two {
   padding-bottom: 6px;
 }
 
+@media screen and (max-width: 600px) {
+  .menu-languages {
+    position: absolute !important;
+    left: 10px;
+    top: -210px;
+  }
+}
+
 .nav {
   display: block;
   position: relative;
@@ -14572,12 +14598,20 @@ hr.style-two {
   -ms-flex-align: center;
   align-items: center;
   min-height: 100px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .product-item .image img {
-  width: 80%;
-  height: auto;
+  width: auto;
+  max-width: 100%;
+  max-height: 145px;
+}
+
+.product-item__title {
+  display: block;
+  width: 100%;
+  height: 37px;
+  overflow: hidden;
 }
 
 .news-item .image {
@@ -15007,4 +15041,32 @@ article p {
 
 .single_add_to_cart_button.loading:after {
   top: 21px !important;
+}
+
+.page-404 .contain {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.page-404 .message {
+  margin-bottom: 20px;
+}
+
+.button-style i {
+  color: #FFFFFF;
+}
+
+.button-style i:hover, .button-style i:focus {
+  color: #f0d19e;
 }

@@ -638,13 +638,17 @@ if (!function_exists('the_product_card')) {
             $links[] = '<a href="'.get_term_link($term).'">'.$term->name.'</a>';
         }
 
-        echo '<div class="col-md-2 col-sm-4 col-xs-6">
+        echo '<div class="col-12 col-md-6 col-lg-4 col-xl-3">
         <div class="product-item">
             ' . $on_sale_html . '
-            <div class="image">
-                <img src="' . get_the_post_thumbnail_url($product->get_id(), 'medium') . '" alt="" title="' . $product->get_name() . '" />
-            </div>
-            <h4>' . $product->get_name() . '</h4>
+            <a href="' . get_the_permalink($product->get_id()) . '">
+                <div class="image">
+                    <img src="' . get_the_post_thumbnail_url($product->get_id(), 'medium') . '" alt="" title="' . $product->get_name() . '" />
+                </div>
+            </a>
+            <a class="product-item__title" href="' . get_the_permalink($product->get_id()) . '">
+                  <h4>' . $product->get_name() . '</h4>
+            </a>
             <span class="type">'.implode($links, ', ').'</span>
             <div class="price-container">
             ' . $price_html . '
