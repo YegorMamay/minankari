@@ -94,7 +94,7 @@
                             </form>
                         </div>
                     </div>
-                    <div class="col-md-8 col-lg-6 text-right stretch header-col">
+                    <div class="col-md-8 col-lg-7 text-right stretch header-col">
                         <div class="menu">
                             <div class="menu-wrapper js-menu">
                                 <?php wp_nav_menu(array(

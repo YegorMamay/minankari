@@ -135,16 +135,17 @@
             <?php _e('О «Minanakari»', 'brainworks'); ?>
         </h2>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <?php echo do_shortcode(get_post_meta(get_the_ID(), 'about-left', true)); ?>
-            </div>
-            <div class="col-md-6">
-                <?php echo do_shortcode(get_post_meta(get_the_ID(), 'about-right', true)); ?>
                 <div class="sp-xs-3"></div>
+                <?php get_template_part('loops/content', 'home'); ?>
+            </div>
+            <div class="col-md-12">
+                <?php echo do_shortcode(get_post_meta(get_the_ID(), 'about-right', true)); ?>
                 <?php echo do_shortcode('[signature]'); ?>
             </div>
         </div>
-        <?php get_template_part('loops/content', 'home'); ?>
+
     </div>
 </section>
 

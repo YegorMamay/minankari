@@ -576,7 +576,7 @@ if (!function_exists('get_last_added_products')) {
     function get_last_added_products()
     {
         $query = new WC_Product_Query(array(
-            'limit' => 6,
+            'limit' => 4,
             'orderby' => 'date',
             'order' => 'DESC',
         ));
