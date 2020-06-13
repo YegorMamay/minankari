@@ -57,18 +57,15 @@
             <div class="col-md-3">
                 <h4><?php _e('Информация', 'brainworks'); ?></h4>
                 <div class="footer-categories-list one-column">
-                    <ul>
-                        <?php $items = wp_get_nav_menu_items('footer-menu');
-                        if ($items) {
-                            foreach ($items as $item) { ?>
-                                <li>
-                                    <a href="<?php echo $item->url; ?>">
-                                        <?php echo $item->title ?>
-                                    </a>
-                                </li>
-                        <?php }
-                        } ?>
-                    </ul>
+                    <?php wp_nav_menu(array(
+                        'theme_location' => 'footer-menu',
+                        'container' => false,
+                        'menu_class' => 'menu-container',
+                        'menu_id' => '',
+                        'fallback_cb' => 'wp_page_menu',
+                        'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                        'depth' => 3
+                    )); ?>
                 </div>
             </div>
             <div class="col-md-6">

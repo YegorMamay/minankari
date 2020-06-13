@@ -99,9 +99,12 @@
                     <h4>
                         <?php echo $first_post->post_title; ?>
                     </h4>
+                    <p>
+                        <?php echo $first_post->post_excerpt; ?>
+                    </p>
                     <span class="time">
                         <i class="fal fa-clock"></i>
-                        4 октября
+                        <?php echo date_i18n('j F', get_the_time( 'U', $first_post ), false); ?>
                     </span>
                 </a>
             </div>
@@ -110,15 +113,18 @@
                     ?>
                     <a href="<?php echo get_the_permalink($aside_post->ID) ?>" class="news-item in-row">
                         <div class="image">
-                            <img src="<?php echo get_the_post_thumbnail_url($first_post->ID, 'medium'); ?>" alt="">
+                            <img src="<?php echo get_the_post_thumbnail_url($aside_post->ID, 'medium'); ?>" alt="">
                         </div>
                         <div class="info">
                             <h4>
                                 <?php echo $aside_post->post_title; ?>
                             </h4>
+                            <p>
+                                <?php the_excerpt($aside_post); ?>
+                            </p>
                             <span class="time">
                                 <i class="fal fa-clock"></i>
-                                4 октября
+                                <?php echo date_i18n('j F', get_the_time( 'U', $first_post ), false); ?>
                             </span>
                         </div>
                     </a>

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { connect } from "react-redux";
 import {
   FETCH_FILTERS_COMPLETED,
@@ -7,7 +7,7 @@ import {
   CHANGE_IN_STOCK_STATUS,
   CHANGE_PRE_ORDER_STATUS,
   CHANGE_PRICE,
-  SET_ACTIVATED_FILTERS
+  SET_ACTIVATED_FILTERS,
 } from "./../store/reducers/filters";
 import "rc-slider/assets/index.css";
 import Slider from "rc-slider";
@@ -23,13 +23,13 @@ export const checkIsActive = (value, slug, activated) => {
 export const FiltersGroupComponent = ({ title, children }) => {
   const content = useRef(null);
 
-  const slideContent = e => {
+  const slideContent = (e) => {
     jQuery(content).slideToggle(300);
   };
 
   return (
     <div className="bw-filters-group-container">
-      <div className="bw-filters-group-header" onClick={e => slideContent(e)}>
+      <div className="bw-filters-group-header" onClick={(e) => slideContent(e)}>
         {title}
       </div>
       <div className="bw-filters-group-content" ref={content}>
@@ -45,13 +45,13 @@ export const FiltersCheckboxComponent = ({
   label,
   onChange,
   type,
-  extra
+  extra,
 }) => (
   <label className="bw-pf-checkbox">
     <span
       className={[
         type === "default" ? "square" : "square color",
-        checked ? "checked" : ""
+        checked ? "checked" : "",
       ].join(" ")}
       style={{ backgroundColor: type === "color" ? extra : "transparent" }}
     ></span>
@@ -59,7 +59,7 @@ export const FiltersCheckboxComponent = ({
       type="checkbox"
       checked={checked || false}
       value={value}
-      onChange={evt => onChange(evt.target.checked, value)}
+      onChange={(evt) => onChange(evt.target.checked, value)}
     />
     <span className="label">{label || value}</span>
   </label>
@@ -69,7 +69,7 @@ export const FiltersStockStatusComponent = ({
   isInStock,
   isPreOrderAllowed,
   inStockStatusChange,
-  preOrderStatusChange
+  preOrderStatusChange,
 }) => {
   const inStockChanged = ([checked, value]) => {
     inStockStatusChange(checked);
@@ -102,11 +102,39 @@ export const FiltersStockStatusComponent = ({
 export const FiltersPriceComponent = ({ value, defaultValue, onChange }) => {
   const min = defaultValue[0],
     max = defaultValue[1];
+
+  const minRef = useRef(),
+    maxRef = useRef();
+
   const [localState, setLocalState] = useState([min, max]);
-  const afterChange = value => {
-    if (onChange) {
-      onChange(value);
+
+  useEffect(() => {
+    minRef.current.value = localState[0];
+    maxRef.current.value = localState[1];
+  }, [localState]);
+
+  const changeHandler = (value) => {
+    if (onChange) onChange(value);
+  };
+
+  const inputChangeHandler = (value, inputType) => {
+    const validValue = value < min ? min : value > max ? max : value;
+
+    const values = [...localState];
+
+    switch (inputType) {
+      case "min": {
+        values[0] = Math.min(validValue, values[1]);
+        break;
+      }
+      case "max": {
+        values[1] = Math.max(validValue, values[1]);
+        break;
+      }
     }
+
+    setLocalState(values);
+    changeHandler(values);
   };
 
   return (
@@ -114,18 +142,28 @@ export const FiltersPriceComponent = ({ value, defaultValue, onChange }) => {
       <div className="bw-price-inputs">
         <label>
           <span>от</span>
-          <input type="number" value={localState[0]} />
+          <input
+            type="tel"
+            defaultValue={localState[0]}
+            onBlur={(event) => inputChangeHandler(event.target.value, "min")}
+            ref={minRef}
+          />
         </label>
         <label>
           <span>до</span>
-          <input type="number" value={localState[1]} />
+          <input
+            type="tel"
+            defaultValue={localState[1]}
+            onBlur={(event) => inputChangeHandler(event.target.value, "max")}
+            ref={maxRef}
+          />
         </label>
       </div>
       <Slider.Range
         allowCross={false}
         value={localState}
-        onChange={value => setLocalState(value)}
-        onAfterChange={value => afterChange(value)}
+        onChange={(value) => setLocalState(value)}
+        onAfterChange={(value) => changeHandler(value)}
         min={min}
         max={max}
       />
@@ -135,14 +173,17 @@ export const FiltersPriceComponent = ({ value, defaultValue, onChange }) => {
 
 export const FiltersActivatedPropertiesComponent = ({
   data,
-  onDeactivateFilter
+  onDeactivateFilter,
 }) => {
   return (
     <div className="bw-pf-activated-filters">
       {Object.keys(data).map((key, index) =>
         data[key].map((property, index) => {
           return (
-            <span onClick={_ => onDeactivateFilter(key, property)} key={index}>
+            <span
+              onClick={(_) => onDeactivateFilter(key, property)}
+              key={index}
+            >
               {property}
             </span>
           );
@@ -160,11 +201,11 @@ export class FiltersComponent extends React.Component {
   loadFilters() {
     this.props.fetchStart();
     fetch(this.queryBuilder())
-      .then(response => response.json())
-      .then(data => {
+      .then((response) => response.json())
+      .then((data) => {
         this.props.fetchCompleted(data);
       })
-      .catch(error => this.props.fetchError(error));
+      .catch((error) => this.props.fetchError(error));
   }
 
   queryBuilder() {
@@ -196,12 +237,10 @@ export class FiltersComponent extends React.Component {
 
   render() {
     const {
-      inStock,
-      preOrder,
       price,
       defaultPrice,
       filters,
-      activatedFilters
+      activatedFilters,
     } = this.props.filters;
 
     return (
@@ -211,12 +250,12 @@ export class FiltersComponent extends React.Component {
           data={activatedFilters}
           onDeactivateFilter={this.changeActivatedFilters.bind(this)}
         /> */}
-        <FiltersStockStatusComponent
+        {/* <FiltersStockStatusComponent
           isInStock={inStock}
           isPreOrderAllowed={preOrder}
           inStockStatusChange={this.changeInStockStatus.bind(this)}
           preOrderStatusChange={this.changePreOrderStatus.bind(this)}
-        />
+        /> */}
         {!!defaultPrice[0] && !!defaultPrice[1] ? (
           <FiltersPriceComponent
             defaultValue={defaultPrice}
@@ -255,21 +294,21 @@ export class FiltersComponent extends React.Component {
 }
 
 export default connect(
-  state => ({
-    filters: state.filters
+  (state) => ({
+    filters: state.filters,
   }),
-  dispatch => ({
+  (dispatch) => ({
     fetchStart: () => dispatch({ type: FETCH_FILTERS_START }),
-    fetchCompleted: payload =>
+    fetchCompleted: (payload) =>
       dispatch({ type: FETCH_FILTERS_COMPLETED, payload }),
-    fetchError: error =>
+    fetchError: (error) =>
       dispatch({ type: FETCH_FILTERS_ERROR, payload: error }),
-    changeInStockStatus: payload =>
+    changeInStockStatus: (payload) =>
       dispatch({ type: CHANGE_IN_STOCK_STATUS, payload }),
-    changePreOrderStatus: payload =>
+    changePreOrderStatus: (payload) =>
       dispatch({ type: CHANGE_PRE_ORDER_STATUS, payload }),
-    changePrice: payload => dispatch({ type: CHANGE_PRICE, payload }),
-    changeActivatedFilters: payload =>
-      dispatch({ type: SET_ACTIVATED_FILTERS, payload })
+    changePrice: (payload) => dispatch({ type: CHANGE_PRICE, payload }),
+    changeActivatedFilters: (payload) =>
+      dispatch({ type: SET_ACTIVATED_FILTERS, payload }),
   })
 )(FiltersComponent);

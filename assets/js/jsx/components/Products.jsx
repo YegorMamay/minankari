@@ -2,13 +2,19 @@ import React from "react";
 import { connect } from "react-redux";
 import { INC_PAGE } from "./../store/reducers/products";
 
-export const ProductsLoadMoreComponent = ({ onClick }) => {
+export const ProductsLoadMoreComponent = ({ onClick, disabled }) => {
   return (
-    <button type="button" className="bw-load-more" onClick={_ => onClick()}>
+    <button disabled={disabled} type="button" className="bw-load-more" onClick={(_) => onClick()}>
       ЗАГРУЗИТЬ ЕЩЕ 20 ТОВАРОВ
-    </button>
+    </button> 
   );
 };
+
+export const ProductsLoadSpinnerComponent = () => (
+  <div class="spinner-wrapper">
+    <div class="spinner"></div>
+  </div>
+);
 
 export const ProductsItemComponent = ({
   Title,
@@ -17,9 +23,9 @@ export const ProductsItemComponent = ({
   RegularPrice,
   SalePrice,
   CategoryName,
-  CategorySlug
+  CategorySlug,
 }) => (
-  <div className="product-item">
+  <a href={Permalink} className="product-item">
     {SalePrice ? <span className="on-sale-label">Акция</span> : null}
     <div className="image">
       <img src={PictureUrl} alt="" title={Title} />
@@ -34,15 +40,15 @@ export const ProductsItemComponent = ({
       ))}
     </span>
     <div className="price-container">
-      <span className="price">{SalePrice || RegularPrice} ₴</span>
+      <span className="price">{SalePrice || RegularPrice} грн</span>
       {SalePrice ? (
-        <span className="price-regular">{RegularPrice} ₴</span>
+        <span className="price-regular">{RegularPrice} грн</span>
       ) : null}
     </div>
-    <a href={Permalink} className="btn">
+    <span href={Permalink} className="btn">
       Подробнее
-    </a>
-  </div>
+    </span>
+  </a>
 );
 
 export class ProductsComponent extends React.Component {
@@ -51,7 +57,7 @@ export class ProductsComponent extends React.Component {
   }
 
   render() {
-    const { products, total, limit, page } = this.props.products;
+    const { products, total, limit, page, fetching } = this.props.products;
 
     return (
       <>
@@ -63,18 +69,21 @@ export class ProductsComponent extends React.Component {
         {limit * page < total ? (
           <ProductsLoadMoreComponent
             onClick={this.loadMoreProducts.bind(this)}
+            disabled={fetching}
           />
         ) : null}
+
+        {fetching ? <ProductsLoadSpinnerComponent /> : null}
       </>
     );
   }
 }
 
 export default connect(
-  state => ({
-    products: state.products
+  (state) => ({
+    products: state.products,
   }),
-  dispatch => ({
-    incrementPage: () => dispatch({ type: INC_PAGE })
+  (dispatch) => ({
+    incrementPage: () => dispatch({ type: INC_PAGE }),
   })
 )(ProductsComponent);

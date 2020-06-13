@@ -622,13 +622,14 @@ if (!function_exists('the_product_card')) {
     {
         $on_sale_html = '';
         $price_html = '';
+        $currency = __('грн.', 'brainworks');
 
         if ($product->is_on_sale()) {
             $on_sale_html = '<span class="on-sale-label">' . __('Акция!', 'brainworks') . '</span>';
-            $price_html = '<span class="price">' . $product->get_sale_price() . ' ' . get_woocommerce_currency_symbol() . '</span>';
-            $price_html .= '<span class="price-regular">' . $product->get_regular_price() . ' ' . get_woocommerce_currency_symbol() . '</span>';
+            $price_html = '<span class="price">' . $product->get_sale_price() . ' ' . $currency . '</span>';
+            $price_html .= '<span class="price-regular">' . $product->get_regular_price() . ' ' . $currency . '</span>';
         } else {
-            $price_html = '<span class="price">' . $product->get_regular_price() . ' ' . get_woocommerce_currency_symbol() . '</span>';
+            $price_html = '<span class="price">' . $product->get_regular_price() . ' ' . $currency . '</span>';
         }
 
         $terms = get_the_terms($product->get_id(), 'product_cat');

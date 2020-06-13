@@ -1,5 +1,5 @@
 /*
-Theme Name: minankari-v1.0
+Theme Name: minankari-v1.1
 Theme URI:
 Text Domain: brainworks
 Author: Brain Works
@@ -11582,7 +11582,7 @@ ol.commentlist .comment-body {
   color: #fff;
   position: absolute;
   top: 4px;
-  right: 8px;
+  right: 20px;
   z-index: -1;
 }
 
@@ -11969,6 +11969,10 @@ ol.commentlist .comment-body {
   cursor: pointer;
 }
 
+.woocommerce .bw-load-more:disabled {
+  opacity: 0.7;
+}
+
 .woocommerce form.checkout_coupon,
 .woocommerce form.login,
 .woocommerce form.register {
@@ -12125,7 +12129,7 @@ ol.commentlist .comment-body {
 
 #top .input-text {
   background: transparent;
-  border: 1px solid #F8D4E1;
+  border: 1px solid #f8d4e1;
   color: #ffffff;
 }
 
@@ -12139,6 +12143,44 @@ ol.commentlist .comment-body {
 
 #top .cart_totals h2 {
   color: #ffffff;
+}
+
+.spinner-wrapper {
+  margin: 20px 0;
+}
+
+.spinner-wrapper .spinner {
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  border: 5px solid #fff;
+  border-color: #fff transparent #fff #fff;
+  border-radius: 26px;
+  -webkit-animation: spinnerAnimation 0.5s ease-in-out;
+  animation: spinnerAnimation 0.5s ease-in-out;
+}
+
+@-webkit-keyframes spinnerAnimation {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinnerAnimation {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 
 h1,
@@ -14572,7 +14614,7 @@ hr.style-two {
   transform: rotate(15deg);
 }
 
-.product-item a.btn, .product-item .woocommerce a.button, .woocommerce .product-item a.button, .product-item .woocommerce a.added_to_cart, .woocommerce .product-item a.added_to_cart {
+.product-item span.btn {
   display: block;
   font-size: 12px;
   text-transform: uppercase;
@@ -14614,6 +14656,10 @@ hr.style-two {
   overflow: hidden;
 }
 
+.product-item:hover, .product-item:active {
+  color: #fff;
+}
+
 .news-item .image {
   width: 100%;
 }
@@ -14629,6 +14675,12 @@ hr.style-two {
   padding: 0;
   line-height: 29px;
   font-size: 20px;
+}
+
+.news-item p {
+  font-size: 14px;
+  color: #fff;
+  margin-bottom: 20px;
 }
 
 .news-item span {
