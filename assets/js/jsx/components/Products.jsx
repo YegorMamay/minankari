@@ -4,9 +4,14 @@ import { INC_PAGE } from "./../store/reducers/products";
 
 export const ProductsLoadMoreComponent = ({ onClick, disabled }) => {
   return (
-    <button disabled={disabled} type="button" className="bw-load-more" onClick={(_) => onClick()}>
-      ЗАГРУЗИТЬ ЕЩЕ 20 ТОВАРОВ
-    </button> 
+    <button
+      disabled={disabled}
+      type="button"
+      className="bw-load-more"
+      onClick={(_) => onClick()}
+    >
+      {window._translationDictionary.get("ЗАГРУЗИТЬ ЕЩЕ 20 ТОВАРОВ")}
+    </button>
   );
 };
 
@@ -26,28 +31,40 @@ export const ProductsItemComponent = ({
   CategorySlug,
 }) => (
   <a href={Permalink} className="product-item">
-    {SalePrice ? <span className="on-sale-label">Акция</span> : null}
-    <div className="image">
-      <img src={PictureUrl} alt="" title={Title} />
+    {SalePrice ? (
+      <span className="on-sale-label">
+        {window._translationDictionary.get("Акция")}
+      </span>
+    ) : null}
+    <div>
+      <div className="image">
+        <img src={PictureUrl} alt="" title={Title} />
+      </div>
+      <h4>{Title}</h4>
+      <span className="type">
+        {CategoryName.map((name, index) => (
+          <>
+            <a href={`/product-category/${CategorySlug[index]}`}>{name}</a>
+            {index !== CategoryName.length - 1 ? ", " : ""}
+          </>
+        ))}
+      </span>
     </div>
-    <h4>{Title}</h4>
-    <span className="type">
-      {CategoryName.map((name, index) => (
-        <>
-          <a href={`/product-category/${CategorySlug[index]}`}>{name}</a>
-          {index !== CategoryName.length - 1 ? ", " : ""}
-        </>
-      ))}
-    </span>
-    <div className="price-container">
-      <span className="price">{SalePrice || RegularPrice} грн</span>
-      {SalePrice ? (
-        <span className="price-regular">{RegularPrice} грн</span>
-      ) : null}
+    <div>
+      <div className="price-container">
+        <span className="price">
+          {SalePrice || RegularPrice} {window._translationDictionary.get("грн")}
+        </span>
+        {SalePrice ? (
+          <span className="price-regular">
+            {RegularPrice} {window._translationDictionary.get("грн")}
+          </span>
+        ) : null}
+      </div>
+      <span href={Permalink} className="btn">
+        {window._translationDictionary.get("Подробнее")}
+      </span>
     </div>
-    <span href={Permalink} className="btn">
-      Подробнее
-    </span>
   </a>
 );
 
@@ -60,12 +77,13 @@ export class ProductsComponent extends React.Component {
     const { products, total, limit, page, fetching } = this.props.products;
 
     return (
-      <>
+      <div className={["bw-grid-wrapper", fetching ? "loading" : ""].join(" ")}>
         <div className="bw-grid">
           {products.map((product, index) => (
             <ProductsItemComponent key={index} {...product} />
           ))}
         </div>
+
         {limit * page < total ? (
           <ProductsLoadMoreComponent
             onClick={this.loadMoreProducts.bind(this)}
@@ -74,7 +92,7 @@ export class ProductsComponent extends React.Component {
         ) : null}
 
         {fetching ? <ProductsLoadSpinnerComponent /> : null}
-      </>
+      </div>
     );
   }
 }

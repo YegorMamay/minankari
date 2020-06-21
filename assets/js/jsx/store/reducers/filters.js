@@ -53,7 +53,7 @@ export const reducer = (state = initialState, action) => {
       return { ...state, preOrder: action.payload };
     }
     case CHANGE_SORT_TYPE: {
-      return { ...state, sortBy: action.payload };
+      return { ...state, fetching: true, sortBy: action.payload };
     }
     case CHANGE_PRICE: {
       return { ...state, price: action.payload };

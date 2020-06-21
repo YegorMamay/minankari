@@ -65,39 +65,6 @@ export const FiltersCheckboxComponent = ({
   </label>
 );
 
-export const FiltersStockStatusComponent = ({
-  isInStock,
-  isPreOrderAllowed,
-  inStockStatusChange,
-  preOrderStatusChange,
-}) => {
-  const inStockChanged = ([checked, value]) => {
-    inStockStatusChange(checked);
-  };
-
-  const preOrderChanged = ([checked, value]) => {
-    preOrderStatusChange(checked);
-  };
-
-  return (
-    <FiltersGroupComponent title={"Наличие"}>
-      <FiltersCheckboxComponent
-        checked={isInStock}
-        value={"inStock"}
-        label={"На складе"}
-        type={"default"}
-        onChange={(...data) => inStockChanged(data)}
-      />
-      <FiltersCheckboxComponent
-        checked={isPreOrderAllowed}
-        value={"preOrder"}
-        label={"Предзаказ"}
-        type={"default"}
-        onChange={(...data) => preOrderChanged(data)}
-      />
-    </FiltersGroupComponent>
-  );
-};
 
 export const FiltersPriceComponent = ({ value, defaultValue, onChange }) => {
   const min = defaultValue[0],
@@ -128,7 +95,7 @@ export const FiltersPriceComponent = ({ value, defaultValue, onChange }) => {
         break;
       }
       case "max": {
-        values[1] = Math.max(validValue, values[1]);
+        values[1] = Math.max(validValue, values[0]);
         break;
       }
     }
@@ -138,10 +105,10 @@ export const FiltersPriceComponent = ({ value, defaultValue, onChange }) => {
   };
 
   return (
-    <FiltersGroupComponent title={"Цена:"}>
+    <FiltersGroupComponent title={window._translationDictionary.get("Цена:")}>
       <div className="bw-price-inputs">
         <label>
-          <span>от</span>
+          <span>{window._translationDictionary.get("от")}</span>
           <input
             type="tel"
             defaultValue={localState[0]}
@@ -150,7 +117,7 @@ export const FiltersPriceComponent = ({ value, defaultValue, onChange }) => {
           />
         </label>
         <label>
-          <span>до</span>
+          <span>{window._translationDictionary.get("до")}</span>
           <input
             type="tel"
             defaultValue={localState[1]}
@@ -171,27 +138,6 @@ export const FiltersPriceComponent = ({ value, defaultValue, onChange }) => {
   );
 };
 
-export const FiltersActivatedPropertiesComponent = ({
-  data,
-  onDeactivateFilter,
-}) => {
-  return (
-    <div className="bw-pf-activated-filters">
-      {Object.keys(data).map((key, index) =>
-        data[key].map((property, index) => {
-          return (
-            <span
-              onClick={(_) => onDeactivateFilter(key, property)}
-              key={index}
-            >
-              {property}
-            </span>
-          );
-        })
-      )}
-    </div>
-  );
-};
 
 export class FiltersComponent extends React.Component {
   componentDidMount() {
@@ -245,17 +191,8 @@ export class FiltersComponent extends React.Component {
 
     return (
       <div>
-        <h4 className="bw-filters-header">Параметры</h4>
-        {/* <FiltersActivatedPropertiesComponent
-          data={activatedFilters}
-          onDeactivateFilter={this.changeActivatedFilters.bind(this)}
-        /> */}
-        {/* <FiltersStockStatusComponent
-          isInStock={inStock}
-          isPreOrderAllowed={preOrder}
-          inStockStatusChange={this.changeInStockStatus.bind(this)}
-          preOrderStatusChange={this.changePreOrderStatus.bind(this)}
-        /> */}
+        <h4 className="bw-filters-header">{window._translationDictionary.get("Параметры")}</h4>
+
         {!!defaultPrice[0] && !!defaultPrice[1] ? (
           <FiltersPriceComponent
             defaultValue={defaultPrice}

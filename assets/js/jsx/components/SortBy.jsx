@@ -35,7 +35,7 @@ export const SortByComponent = ({ filters, setSortType }) => {
 
   return (
     <div className="bw-sort-by">
-      <span>Сортировать по:</span>
+      <span>{window._translationDictionary.get("Сортировать по")}:</span>
       <div className={opened ? "opened" : ""}>
         <input
           type="tel"
@@ -51,9 +51,6 @@ export const SortByComponent = ({ filters, setSortType }) => {
           onClick={e => toggle(e)}
           ref={ref}
           onBlur={e => toggle()}
-          onFocus={_ => console.log("FOCUSED")}
-          onFocusIn={_ => console.log("focus in")}
-          onFocusOut={_ => console.log("Focus out")}
         >
           {sortByLabels[sortBy]}
         </span>

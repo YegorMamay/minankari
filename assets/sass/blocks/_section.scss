@@ -70,6 +70,10 @@
 .product-item {
   position: relative;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   overflow: hidden;
 
   padding: 30px 15px 20px;
@@ -78,6 +82,16 @@
 
   text-align: center;
   color: #fff;
+
+  > div {
+    width: 100%;
+
+    &:last-child {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+  }
 
   h4 {
     font-weight: normal;
@@ -150,7 +164,8 @@
     }
   }
 
-  span.btn {
+  span.btn,
+  a.btn {
     display: block;
     font-size: 12px;
     text-transform: uppercase;

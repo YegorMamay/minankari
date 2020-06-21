@@ -9,6 +9,35 @@
     <meta name="apple-mobile-web-app-title" content="<?php bloginfo('name'); ?> - <?php bloginfo('description'); ?>">
     <link rel="shortcut icon" href="<?php echo esc_url(get_template_directory_uri() . '/assets/img/favicon.ico'); ?>" type="image/x-icon">
     <link rel="icon" href="<?php echo esc_url(get_template_directory_uri() . '/assets/img/favicon.ico'); ?>" type="image/x-icon">
+    <script>
+        window._translationDictionary = (() => {
+            const DICTIONARY = {
+                "Наличие": "<?php _e('Наличие', 'brainworks'); ?>",
+                "На складе": "<?php _e('На складе', 'brainworks'); ?>",
+                "Предзаказ": "<?php _e('Предзаказ', 'brainworks'); ?>",
+                "ЗАГРУЗИТЬ ЕЩЕ 20 ТОВАРОВ": "<?php _e('ЗАГРУЗИТЬ ЕЩЕ 20 ТОВАРОВ', 'brainworks'); ?>",
+                "Акция": "<?php _e('Акция', 'brainworks'); ?>",
+                "грн": "<?php _e('грн', 'brainworks'); ?>",
+                "Подробнее": "<?php _e('Подробнее', 'brainworks'); ?>",
+                "Сортировать по": "<?php _e('Сортировать по', 'brainworks'); ?>",
+                "от": "<?php _e('от', 'brainworks'); ?>",
+                "до": "<?php _e('до', 'brainworks'); ?>",
+                "Параметры": "<?php _e('Параметры', 'brainworks'); ?>",
+                "Цена": "<?php _e('Цена', 'brainworks'); ?>",
+            };
+
+            return {
+                /**
+                 * @param {string} key Key of translation string
+                 * @returns {string}
+                 */
+                get: function (key) {
+                    if (!key) return '';
+                    return DICTIONARY[key.trim()] || key;
+                }
+            }
+        })()
+    </script>
     <?php wp_head(); ?>
     <script>
         window.$ = jQuery;
