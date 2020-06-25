@@ -28,3 +28,13 @@ require get_template_directory() . '/inc/custom-post-types.php';
 
 require get_template_directory() . '/inc/LoadMorePosts.php';
 require get_template_directory() . '/inc/ecommerce.php';
+
+
+//Изменение перевода
+add_filter('gettext', 'translate_text');
+add_filter('ngettext', 'translate_text');
+ 
+function translate_text($translated) {
+$translated = str_ireplace('Подытог', 'Итого', $translated);
+return $translated;
+}
