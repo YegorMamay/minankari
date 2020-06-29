@@ -13,6 +13,7 @@ export const sortByLabels = {
 export const config = window._BRAINWORKS_CONFIG_ || {
   Category: "",
   PageHeader: "",
+  PageDescription: "",
   ProductItemButtonLabel: "",
   OnSale: false
 };

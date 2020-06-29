@@ -28,9 +28,9 @@
 <section class="block">
     <div class="container">
         <h2 class="block__title">
-            <?php _e("Акционный товар", "brainworks"); ?>
+            <?php _e("Распродажа", "brainworks"); ?>
             <a href="/shop?on_sale=1">
-                <?php _e('все акции'); ?>
+                <?php _e('смотреть все'); ?>
                 <i class="fal fa-long-arrow-right"></i>
             </a>
         </h2>

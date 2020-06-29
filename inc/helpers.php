@@ -625,7 +625,7 @@ if (!function_exists('the_product_card')) {
         $currency = __('грн.', 'brainworks');
 
         if ($product->is_on_sale()) {
-            $on_sale_html = '<span class="on-sale-label">' . __('Акция!', 'brainworks') . '</span>';
+            $on_sale_html = '<span class="on-sale-label">' . __('Распродажа!', 'brainworks') . '</span>';
             $price_html = '<span class="price">' . $product->get_sale_price() . ' ' . $currency . '</span>';
             $price_html .= '<span class="price-regular">' . $product->get_regular_price() . ' ' . $currency . '</span>';
         } else {

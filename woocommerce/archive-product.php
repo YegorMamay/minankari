@@ -24,6 +24,7 @@ $post = $wp_query->get_queried_object();
     window._BRAINWORKS_CONFIG_ = {
         Category: "<?php echo is_tax() || is_category() ? $post->term_id : '' ?>",
         PageHeader: "<?php echo is_shop() ? __('Магазин', "brainworks") : $post->name; ?>",
+        PageDescription: "<?php echo is_shop() ? '' : $post->description  ?>",
         OnSale: Boolean("<?php echo isset($_GET["on_sale"]) ? 1 : '' ?>"),
         DisableFilter: true
     };

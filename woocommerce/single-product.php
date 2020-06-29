@@ -25,13 +25,16 @@ $product = wc_get_product(get_the_ID());
             </span>
             <?php
             $attributes = $product->get_attributes();
-            $additional_attributes = [];
-            if (sizeof($attributes) > 4) {
-                $additional_attributes = array_slice($attributes, 4);
-                $attributes = array_slice($attributes, 0, 4);
-            }
             ?>
             <ul class="attributes">
+                <li>
+                    <span class="name">
+                        <?php _e('Код', 'brainworks'); ?>:
+                    </span>
+                    <span class="value">
+                        <?php echo $product->get_sku(); ?>
+                    </span>
+                </li>
                 <?php foreach ($attributes as $key => $attr) {
                 ?>
                     <li>
@@ -47,33 +50,16 @@ $product = wc_get_product(get_the_ID());
                 <?php
                 } ?>
             </ul>
-            <?php if (sizeof($additional_attributes) > 0) {
+            <?php 
+                $tags = wp_get_post_terms( $post->ID, 'product_tag' );
+                if (sizeof($tags) > 0) {
+                    $html_tags = [];
+                    foreach ($tags as $tag) {
+                        $html_tags[] = sprintf('<a href="%s">%s</a>', get_term_link($tag->term_id), $tag->name);
+                    }
+                    echo '<div class="product-tags">'.implode($html_tags, ',    ').'</div>';
+                }
             ?>
-                <div class="toggler">
-                    <a href="#" class="toggler-link">
-                        <i class="fal fa-chevron-down"></i> <?php _e('Показать все характеристики', 'brainworks'); ?>
-                    </a>
-                    <div class="toggler-content">
-                        <ul class="attributes">
-                            <?php foreach ($additional_attributes as $key => $attr) {
-                            ?>
-                                <li>
-                                    <span class="name">
-                                        <?php echo wc_attribute_label($key); ?>
-                                    </span>
-                                    <span class="value">
-                                        <?php echo implode(array_map(function ($term) {
-                                            return $term->name;
-                                        }, wc_get_product_terms($post->ID, $key, 'names'))); ?>
-                                    </span>
-                                </li>
-                            <?php
-                            } ?>
-                        </ul>
-                    </div>
-                </div>
-            <?php
-            } ?>
             <span class="price">
                 <?php echo $product->get_price(); ?> <?php echo get_woocommerce_currency_symbol(); ?>
             </span>

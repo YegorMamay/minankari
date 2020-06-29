@@ -11402,6 +11402,17 @@ ol.commentlist .comment-body {
   color: #fff;
 }
 
+.woocommerce .bw-product .product-tags {
+  margin-top: 10px;
+  color: #fff;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.woocommerce .bw-product .product-tags a {
+  color: #fff;
+}
+
 .woocommerce .bw-product .button.add-to-cart.cart-buttton.alt {
   display: block;
   padding: 21px 0px;
@@ -11643,6 +11654,13 @@ ol.commentlist .comment-body {
     right: 0;
     padding-top: 0;
   }
+}
+
+.bw-header .bw-category-description {
+  max-width: 560px;
+  font-size: 14px;
+  line-height: 19px;
+  margin-top: 10px;
 }
 
 .rc-slider {
@@ -12191,6 +12209,74 @@ ol.commentlist .comment-body {
   border-radius: 50%;
   -webkit-animation: spinnerAnimation 0.5s ease-in-out infinite;
   animation: spinnerAnimation 0.5s ease-in-out infinite;
+}
+
+.woocommerce-info {
+  margin-bottom: 1em;
+}
+
+.woocommerce-info .showcoupon {
+  color: #fff;
+}
+
+.woocommerce form.checkout_coupon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: transparent;
+  margin: 15px 30px;
+}
+
+.woocommerce form.checkout_coupon p:not(.form-row) {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.woocommerce form.checkout_coupon p.form-row {
+  width: auto;
+  padding: 0px;
+  margin-bottom: 0px;
+  margin-right: 5px;
+}
+
+.woocommerce form.checkout_coupon p.form-row button {
+  height: 38px;
+  border-radius: 3px;
+}
+
+@media (max-width: 544px) {
+  .woocommerce form.checkout_coupon p.form-row {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  .woocommerce form.checkout_coupon p.form-row button {
+    width: 100%;
+  }
+}
+
+.woocommerce-cart .cart-collaterals .shipping-calculator-button {
+  color: #fff;
+}
+
+#checkout-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  #checkout-form {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
 }
 
 @-webkit-keyframes spinnerAnimation {
@@ -14629,12 +14715,12 @@ hr.style-two {
 .product-item .on-sale-label::before {
   content: "";
   width: 90px;
-  height: 90px;
+  height: 148px;
   position: absolute;
-  top: -60px;
-  left: -40px;
-  -webkit-transform: rotate(55deg);
-  transform: rotate(55deg);
+  top: -92px;
+  left: 0px;
+  -webkit-transform: rotate(65deg);
+  transform: rotate(65deg);
   background-color: #611f2f;
   z-index: -1;
 }

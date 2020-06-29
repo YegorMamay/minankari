@@ -27,13 +27,13 @@ export const ProductsItemComponent = ({
   Permalink,
   RegularPrice,
   SalePrice,
-  CategoryName,
+  CategoryName, 
   CategorySlug,
 }) => (
   <a href={Permalink} className="product-item">
     {SalePrice ? (
       <span className="on-sale-label">
-        {window._translationDictionary.get("Акция")}
+        {window._translationDictionary.get("Распродажа")}
       </span>
     ) : null}
     <div>
