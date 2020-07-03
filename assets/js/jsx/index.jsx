@@ -12,8 +12,6 @@ import { config } from "./config/env";
 export class App extends React.Component {
   componentDidMount() {
     store.dispatch({ type: RESTORE_FILTERS });
-
-    console.log(config, config.PageDescription);
   }
 
   render() {
@@ -22,9 +20,6 @@ export class App extends React.Component {
         <Provider store={store}>
           <h2 class="text-left bw-header">
             <span>{config.PageHeader}</span>
-            {config.PageDescription ? (
-              <p class="bw-category-description">{config.PageDescription}</p>
-            ) : null}
             <SortByComponent />
           </h2>
           <div className="bwpf-wrapper row">

@@ -19,6 +19,8 @@ $post = $wp_query->get_queried_object();
     <?php }
     ?>
     <div id="bwpf"></div>
+
+    <div><?php echo is_shop() ? '' : $post->description  ?></div>
 </div>
 <script>
     window._BRAINWORKS_CONFIG_ = {
